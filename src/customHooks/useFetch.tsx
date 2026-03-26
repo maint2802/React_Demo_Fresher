@@ -18,5 +18,5 @@ export function useFetch<T>(callApiFunc: () => Promise<T>) {
       });
   }, []);
 
-  return { data, isLoading, error };
+  return { data, isLoading, error, setData };
 }

@@ -15,5 +15,5 @@ export async function login() {
 
 export async function getCurrentUser() {
   const res = await instance.get("user");
-  return res;
+  return res.data.user;
 }
