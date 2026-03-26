@@ -25,3 +25,13 @@ export type CountDownProps = {
 // type Admin = User & {
 //     role: string
 // }
+
+export type Company = {
+  name: string;
+};
+
+export type User = {
+  id: number;
+  username: string;
+  company: Company;
+};
