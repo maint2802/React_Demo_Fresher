@@ -1,76 +1,51 @@
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
 import "./App.css";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import TodoAdd from "./components/TodoAdd";
-import TodoList from "./components/TodoList";
-import type { Todo } from "./types/types";
-import CountDown from "./components/CountDown";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Users from "./pages/Users";
+import MainLayout from "./layouts/MainLayout";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        loader: () => redirect("/home"),
+      },
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/users",
+        element: <Users />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+    ],
+  },
+]);
+
 function App() {
-  const [todolist, setTodolist] = useState<Todo[]>([]);
-  // counter
-
-  useEffect(() => {
-    console.log("useEffect"); //update
-    return () => {
-      //
-    };
-  });
-
-  useEffect(() => {
-    console.log("useEffect"); //mount
-  }, []);
-
-  useEffect(() => {
-    console.log("useEffect"); //each todolist updated
-  }, [todolist]);
-
-  // mount -> update -> unmount
-
-  // ComponentDidMount()
-  // ComponentDiUpdate()
-  // ComponentWillUnmount()
-
-  // const callback = () => {
-  // };
-
-  const callback = useCallback((value: number) => {
-    console.log(value);
-  }, []);
-
-  // const total = useMemo(()=>{
-  //     return
-  // }, [products])
-
-  // function object array: ref
-
-  return (
-    <>
-      <TodoAdd todolist={todolist} setTodolist={setTodolist} />
-      {(() => {
-        console.log("render");
-        return <div>hi</div>;
-      })()}
-      <TodoList todolist={todolist} />
-      <CountDown callback={callback} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
 
-// class component vs function component
-// state vs life circle
-// hooks
-// jsx tsx => javascript xml
+// router
 
-// falsy: false, NaN, 0, null, undefined, "
+// Route, Routes,
 
-// const result = false && 'da login'
+// createBrowserRouter
+// Layout
 
-// state: counter
-// useEffect: sideEffect (call API, timer(setTimeout, setInterval), DOM Event(scroll))
+// webpack
 
-// memo: props
-// useCallback vs memo
-// useMemo:hooks  vs memo : HOC
-
-// router, api, contextAPI
+// router: navigate, redirect
