@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom";
-import { getCurrentUser } from "../services/auth";
-import { useEffect } from "react";
+import useAuth from "../customHooks/useAuth";
 const Header = () => {
-  useEffect(() => {
-    getCurrentUser().then((res) => {
-      console.log(res);
-    });
-  });
+  const authContext = useAuth();
+  console.log(authContext);
 
   return (
     <div>

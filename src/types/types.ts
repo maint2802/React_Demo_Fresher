@@ -35,3 +35,10 @@ export type User = {
   username: string;
   company: Company;
 };
+
+export type AuthUser = {
+  admin: boolean;
+  email: string;
+  token: string;
+  username: string;
+};

@@ -1,8 +1,13 @@
 import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import { router } from "./routers";
+import AuthProvider from "./contextAPIs/AuthProvider";
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 }
 
 export default App;
@@ -19,3 +24,8 @@ export default App;
 // router: navigate, redirect
 // params URL
 // call api
+// ContextAPI -> useContext
+// global state: localstorage, contexAPI, lib (redux, zustand)
+
+// redux core ->  redux toolkit  + redux saga
+//
