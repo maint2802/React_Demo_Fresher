@@ -1,16 +1,13 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import type { User } from "../types/types";
 import { Link, useNavigate } from "react-router-dom";
-const usersApi = "https://jsonplaceholder.typicode.com/users";
-
+import { fetchUsers } from "../services/users";
 const Users = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    axios.get(usersApi).then((res) => {
-      console.log(res);
-      setUsers(res.data);
+    fetchUsers().then((res) => {
+      setUsers(res);
     });
   }, []);
 
@@ -38,3 +35,5 @@ const Users = () => {
 };
 
 export default Users;
+
+// instance
