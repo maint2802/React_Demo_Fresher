@@ -27,5 +27,5 @@ export default App;
 // ContextAPI -> useContext
 // global state: localstorage, contexAPI, lib (redux, zustand)
 
-// redux core ->  redux toolkit  + redux saga
-//
+// contextAPI: themeColor, language, dark/light mode, auth
+// lib:
